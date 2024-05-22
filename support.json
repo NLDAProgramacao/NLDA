@@ -1,8 +1,5 @@
 {
-  "support" : "SUPPORTED VERSIONS",
-  "homeTown" : "Metro City",
-  "formed" : 2016,
-  "secretBase" : "Super tower",
+  "title" : "Versões Suportadas",
   "active" : true,
   "versions" : [
     {
@@ -11,7 +8,7 @@
       "released" : "2024-11-14",
       "outdatedIn" : "2026-09-13",
       "descriprion" : [
-        "Radiation resistance",
+        "Atualização pequena de segurança",
         "Turning tiny",
         "Radiation blast"
       ]
