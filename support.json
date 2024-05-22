@@ -1,15 +1,16 @@
 {
-  "support" : "Super Hero",
+  "support" : "SUPPORTED VERSIONS",
   "homeTown" : "Metro City",
   "formed" : 2016,
   "secretBase" : "Super tower",
   "active" : true,
-  "members" : [
+  "versions" : [
     {
-      "name" : "Molecule Man",
-      "age" : 29,
-      "secretIdentity" : "Dan Jukes",
-      "powers" : [
+      "version": "0.1",
+      "support" : "Yes",
+      "released" : "2024-11-14",
+      "outdatedIn" : "2026-09-13",
+      "descriprion" : [
         "Radiation resistance",
         "Turning tiny",
         "Radiation blast"
