@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elements Documentation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        codebox {
+            display: inline-block;
+            background-color: #f4f4f4;
+            padding: 10px 6px;
+            border-radius: 3px;
+        }    
+        value {
+            font-weight: bold;
+            color: #434343;
+        }    
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body lang="en">
+    <h1>Elements Documentation</h1>
+
+    <div class="section">
+        <h2>Global Attributes</h2>
+        <p>Os atributos globais são suportados por todos os elementos visualizáveis:</p>
+        <ul>
+            <li><code>id</code> - Defines a unique identifier for the element, and can be used for specific manipulation of the element using JavaScript.</li>
+            <li><code>style</code> - Define inline vbkit style rules directly on the element</li>
+            <li><code>class</code> - Defines one or more vbkit classes for the element. Used to apply vbkit style rules and associate the element with specific JavaScript functionality.</li>
+            <li><code>ignore</code> - Defines whether or not the element should be ignored: <br/><value>"non-ignorable"</value> or omitted will always display the element, <br/><value>"force-ignored"</value> will hide the element, reserving the original space in the layout, <br/><value>"ignored"</value> hides the element without reserving original space in the layout.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2 translate="no">label</h2>
+        <p>Creates a viewable frame with vertical orientation stacking, which is used to group other elements or associated with a form element <code>id</code> (if the<code>for</code> attribute is provided), similar to creating a <code>&lt;div&gt;</code> in HTML.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>for</code> - Associates the <code>label</code> with a form element <code>id</code>.</li>
+            <li><code>width</code> - Defines the width of <code>label</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>label</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;label id="my_label" width="75%" height="fill-parent"&gt;
+&lt;/label&gt;</codebox></pre>
+    </div>
+
+    <div class="section">
+        <h2 translate="no">stackLabel</h2>
+        <p>Derived from <code>&lt;label&gt;</code>, Creates a viewable frame which is used to group other elements, and arranges the child elements in a single direction defined by the <code>orientation</code> value.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>orientation</code> - Set stacking orientation of child elements: 
+            <br/><value>"vertical"</value> - Stacks child elements vertically; (default value)
+            <br/><value>"horizontal"</value> - Stacks child elements horizontally;</li>
+            <li><code>width</code> - Defines the width of <code>stackLabel</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>stackLabel</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;stackLabel id="my_stack_label" orientation="vertical" width="fill-parent" height="fill-parent"&gt;
+&lt;/stackLabel&gt;</codebox></pre>
+    </div>
+
+    <div class="section">
+        <h2 translate="no">gridLabel</h2>
+        <p>Derived from <code>&lt;label&gt;</code>, Creates a viewable frame arranged in grid format, allowing the organization of elements in rows and columns.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>width</code> - Defines the width of <code>gridLabel</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>gridLabel</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;gridLabel id="my_grid_label" width="150px" height="100px"&gt;
+&lt;/gridLabel&gt;</codebox></pre>
+    </div>
+
+    <div class="section">
+        <h2 translate="no">gr</h2>
+        <p>Adds new row to a grid created using <code>&lt;gridLabel&gt;</code> element.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>width</code> [<b>NOT RECOMMENDED</b>] - Defines the width of <code>gr</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>gr</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;gridLabel id="my_grid_label" width="100px" height="100px"&gt;
+  &lt;gr&gt;
+
+  &lt;/gr&gt;
+&lt;gridLabel&gt;</codebox></pre>
+    </div>
+
+    <div class="section">
+        <h2 translate="no">gridContent</h2>
+        <p>Adds new cell within a row in a grid created using <code>&lt;gridLabel&gt;</code>, allowing the arrangement of elements.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>width</code> - Defines the width of <code>gridContent</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> [<b>NOT RECOMMENDED</b>] - Defines the height of <code>gridContent</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;gridLabel id="my_grid_label" width="100px" height="100px"&gt;
+  &lt;gr&gt;
+    &lt;gridColumn&gt;
+
+    &lt;gridColumn&gt;
+  &lt;/gr&gt;
+&lt;gridLabel&gt;</codebox></pre>
+    </div>
+
+    <div class="section">
+        <h2 translate="no">textLabel</h2>
+        <p>Derived from <code>&lt;label&gt;</code>, Creates a text view, similar to creating a <code>&lt;p&gt;</code> or <code>&lt;span&gt;</code> in HTML.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;textLabel id="my_text"&gt;Hello World!&lt;/textLabel&gt;</codebox></pre>
+    </div>
+
+    <div class="section">
+        <h2 translate="no">imageLabel</h2>
+        <p translate="no">Derived from <code>&lt;label&gt;</code>, Creates an image view, with image content set using <code>require</code> value.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>import</code> [<b>DEPRECATED</b>] - Name of imported resource using <code>&lt;import&gt;</code> to set image content.</li>
+            <li><code>require</code> - Name of imported resource using <code>&lt;import&gt;</code> to set image content.</li>
+            <li><code>width</code> - Defines the width of <code>imageLabel</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>imageLabel</code> element, which can be; static: using pixel values, or relative: using relative percentage values. If omitted, <code>width</code> value is used to adjust size proportionally.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;imageLabel id="my_image" width="350px" height="280px" require="flowers1"&gt;
+&lt;/imageLabel&gt;</codebox></pre>
+    </div>
+  
+    <div class="section">
+        <h2>button</h2>
+        <p>Creates an interactive button to trigger an event callback.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>action</code> - Sets a default action for the button: </br><value>"default"</value> sets no action, </br><value>"submit"</value> sends data from all fields in a form, </br><value>"reset"</value> resets the values of all fields to the default in a form.</li>
+            <li><code>width</code> - Defines the width of <code>button</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>button</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <p>Note: You can add interactivity to <code>button</code> using JavaScript.</p>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;button id="my_button" width="50px" height="28px" action="default"&gt;
+&lt;/button&gt;</codebox></pre>
+    </div>
+  
+    <div class="section">
+        <h2>imageButton</h2>
+        <p>Creates an interactive button to trigger an javascript event callback.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;button id="my_image_button" width="50px" height="28px" action="default"&gt;
+&lt;/button&gt;</codebox></pre>
+    </div>
+    <b style="color: #0000FF;">Note: list of elements is incomplete, and this page will be updated soon.</b>
+</body>
+</html>
