@@ -38,18 +38,19 @@
 
     <div class="section">
         <h2>Global Attributes</h2>
-        <p>Os atributos globais são suportados por todos os elementos visualizáveis:</p>
+        <p>:</p>
         <ul>
             <li><code>id</code> - Defines a unique identifier for the element, and can be used for specific manipulation of the element using JavaScript.</li>
             <li><code>style</code> - Define inline vbkit style rules directly on the element</li>
-            <li><code>class</code> - Defines one or more vbkit classes for the element. Used to apply vbkit style rules and associate the element with specific JavaScript functionality.</li>
+            <li><code>vbkit.scrollable</code> - Enables or disables the scrollbar for element: </br><value>"enable-all"</value> - Enables horizontal and vertical scrollbars.</br><value>"enable-horizontal-only"</value> - Enables horizontal scrollbar only.</br><value>"enable-vertical-only"</value> - Enables vertical scrollbar only.</br><value>"disabled"</value> - Does not include a scrollbar for that element (default value).</li>
+            <li><code>vbkit.resizable</code> - Enables or disables the scrollbar for element: </br><value>"enable-all"</value> - Enables horizontal and vertical scrollbars.</br><value>"enable-horizontal-only"</value> - Enables horizontal scrollbar only.</br><value>"enable-vertical-only"</value> - Enables vertical scrollbar only.</br><value>"disabled"</value> - Does not include a scrollbar for that element (default value).</li>            
             <li><code>ignore</code> - Defines whether or not the element should be ignored: <br/><value>"non-ignorable"</value> or omitted will always display the element, <br/><value>"force-ignored"</value> will hide the element, reserving the original space in the layout, <br/><value>"ignored"</value> hides the element without reserving original space in the layout.</li>
         </ul>
     </div>
 
     <div class="section">
         <h2 translate="no">label</h2>
-        <p>Creates a viewable frame with vertical orientation stacking, which is used to group other elements or associated with a form element <code>id</code> (if the<code>for</code> attribute is provided), similar to creating a <code>&lt;div&gt;</code> in HTML.</p>
+        <p>Creates a viewable frame, which is used to group other elements or associated with a form element <code>id</code> (if the<code>for</code> attribute is provided), similar to creating a <code>&lt;div&gt;</code> in HTML.</p>
         <h3>XML Attributes:</h3>
         <ul>
             <li><code>for</code> - Associates the <code>label</code> with a form element <code>id</code>.</li>
@@ -57,13 +58,13 @@
             <li><code>height</code> - Defines the height of <code>label</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
         </ul>
         <h3>XML:</h3>
-        <pre><codebox>&lt;label id="my_label" width="75%" height="fill-parent"&gt;
+        <pre><codebox>&lt;label id="my_label" width="fill" height="fill"&gt;
 &lt;/label&gt;</codebox></pre>
     </div>
 
     <div class="section">
         <h2 translate="no">stackLabel</h2>
-        <p>Derived from <code>&lt;label&gt;</code>, Creates a viewable frame which is used to group other elements, and arranges the child elements in a single direction defined by the <code>orientation</code> value.</p>
+        <p>Derived from <code>&lt;label&gt;</code>, Creates a viewable frame which is used to group other elements, and arranges child elements in a single direction defined by the <code>orientation</code> value.</p>
         <h3>XML Attributes:</h3>
         <ul>
             <li><code>orientation</code> - Set stacking orientation of child elements: 
@@ -73,7 +74,7 @@
             <li><code>height</code> - Defines the height of <code>stackLabel</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
         </ul>
         <h3>XML:</h3>
-        <pre><codebox>&lt;stackLabel id="my_stack_label" orientation="vertical" width="fill-parent" height="fill-parent"&gt;
+        <pre><codebox>&lt;stackLabel id="my_stack_label" orientation="vertical" width="fill" height="fill"&gt;
 &lt;/stackLabel&gt;</codebox></pre>
     </div>
 
@@ -149,13 +150,88 @@
         <pre><codebox>&lt;imageLabel id="my_image" width="350px" height="280px" require="flowers1"&gt;
 &lt;/imageLabel&gt;</codebox></pre>
     </div>
-  
+    
+    <div class="section">
+        <h2 translate="no">objectLabel</h2>
+        <p translate="no">Creates an file data view, with source content set using <code>require</code> attribute value.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>import</code> [<b>DEPRECATED</b>] - Name of imported resource using <code>&lt;import&gt;</code> to set image content.</li>
+            <li><code>require</code> - Name of imported resource using <code>&lt;import&gt;</code> to set image content.</li>
+            <li><code>width</code> - Defines the width of <code>objectLabel</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>objectLabel</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;objectLabel id="my_object" width="150px" height="95px" require="object_page"&gt;
+&lt;/objectLabel&gt;</codebox></pre>
+    </div>
+    
+    <div class="section">    
+        <h2 translate="no">textbox</h2>
+        <p translate="no">An input to set text or number.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>type</code> - Determines the accepted type of input value: </br><value>"text"</value> - Accepts plain text (default value), </br><value>"number"</value> - Accepts number.</li>
+            <li><code>value</code> - The default value for input.</li>            
+            <li><code>placeholder</code> [<b>NEW</b>] - The text displayed when input is empty.</li>         
+            <li><code>width</code> - Defines the width of <code>textbox</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>textbox</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;textbox id="my_textbox" type="number" placeholder="Type..."&gt;
+&lt;/textbox&gt;</codebox></pre>
+    </div>
+    
+    <div class="section">    
+        <h2 translate="no">textarea</h2>
+        <p translate="no">An input to set larger texts.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>value</code> - The default value for input.</li>            
+            <li><code>placeholder</code> [<b>NEW</b>] - The text displayed when input is empty.</li>         
+            <li><code>width</code> - Defines the width of <code>textarea</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>textarea</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;textarea id="my_textarea" placeholder="Type..."&gt;
+&lt;/textarea&gt;</codebox></pre>
+    </div>
+    
+    <div class="section">    
+        <h2 translate="no">dropbox</h2>
+        <p translate="no">An input for selecting options and values.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>value</code> - The default value for input.</li>            
+            <li><code>placeholder</code> [<b>NEW</b>] - </li>         
+            <li><code>width</code> - Defines the width of <code>dropbox</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>dropbox</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;dropbox id="my_textbox" placeholder="Choose..."&gt;
+&lt;/dropbox&gt;</codebox></pre>
+    </div>    
+          
+    <div class="section">    
+        <h2 translate="no">option</h2>
+        <p translate="no"></p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>value</code> - The default value for input.</li>            
+            <li><code>disabled</code> - A boolean that determines whether or not the <code>option</code> is disabled. (<value>"false"</value> is the default value)</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;dropbox id="my_dropbox"&gt;
+&lt;option value="opt1"&gt;Display Name&lt;/option&gt;
+&lt;/dropbox&gt;</codebox></pre>
+    </div>    
+    
     <div class="section">
         <h2>button</h2>
         <p>Creates an interactive button to trigger an event callback.</p>
         <h3>XML Attributes:</h3>
         <ul>
-            <li><code>action</code> - Sets a default action for the button: </br><value>"default"</value> sets no action, </br><value>"submit"</value> sends data from all fields in a form, </br><value>"reset"</value> resets the values of all fields to the default in a form.</li>
+            <li><code>action</code> - [<b>REFORMING</b>] Sets a default action for the button: </br><value>"default"</value> sets no action, </br><value>"submit"</value> sends data from all fields in a form, </br><value>"reset"</value> resets the values of all fields to the default in a form.</br><b>This may be changed soon.</b></li>
             <li><code>width</code> - Defines the width of <code>button</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
             <li><code>height</code> - Defines the height of <code>button</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
         </ul>
@@ -169,12 +245,57 @@
         <h2>imageButton</h2>
         <p>Creates an interactive button to trigger an javascript event callback.</p>
         <h3>XML Attributes:</h3>
+            <li><code>action</code> - [<b>REFORMING</b>] Sets a default action for the button: </br><value>"default"</value> sets no action, </br><value>"submit"</value> sends data from all fields in a form, </br><value>"reset"</value> resets the values of all fields to the default in a form.</br><b>This may be changed soon.</b></li>
+            <li><code>width</code> - Defines the width of <code>button</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>button</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>        
         <ul>
         </ul>
         <h3>XML:</h3>
-        <pre><codebox>&lt;button id="my_image_button" width="50px" height="28px" action="default"&gt;
-&lt;/button&gt;</codebox></pre>
+        <pre><codebox>&lt;imageButton id="my_image_button" width="50px" height="28px" action="default"&gt;
+&lt;/imageButton&gt;</codebox></pre>
     </div>
-    <b style="color: #0000FF;">Note: list of elements is incomplete, and this page will be updated soon.</b>
+
+    <div class="section">    
+        <h2 translate="no">checkbox</h2>
+        <p translate="no"></p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>checked</code> - The input state, </br><value>"false"</value> - Not checked (default value). </br><value>"true"</value> - Checked.</li>            
+            <li><code>width</code> - Defines the width of <code>checkbox</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>checkbox</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;checkbox id="my_checkbox"&gt;&lt;/checkbox&gt;</codebox></pre>
+    </div>
+    
+    <div class="section">    
+        <h2 translate="no">radio</h2>
+        <p translate="no"></p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>checked</code> - The input state, </br><value>"false"</value> - Not checked (default value). </br><value>"true"</value> - Checked.</li>            
+            <li><code>width</code> - Defines the width of <code>checkbox</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>checkbox</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;radio id="my_radio"&gt;&lt;/radio&gt;</codebox></pre>
+    </div>
+    
+    <div class="section">    
+        <h2 translate="no">slider</h2>
+        <p translate="no">An input to select a range.</p>
+        <h3>XML Attributes:</h3>
+        <ul>
+            <li><code>value</code> - The default value for input.</li>            
+            <li><code>min-value</code> - Minimum value allowed to set.</li>
+            <li><code>max-value</code> - Maximum value allowed to set.</li>
+            <li><code>width</code> - Defines the width of <code>textbox</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+            <li><code>height</code> - Defines the height of <code>textbox</code> element, which can be; static: using pixel values, or relative: using relative percentage values.</li>
+        </ul>
+        <h3>XML:</h3>
+        <pre><codebox>&lt;slider id="my_slider" min-value="0" max-value="100" value="75"&gt;&lt;/slider&gt;</codebox></pre>
+    </div>
+    
+    <b style="color: #0000FF;">Note: list of elements is incomplete, and this page will be updated soon.</b>    
 </body>
 </html>
